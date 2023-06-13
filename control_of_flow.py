@@ -145,4 +145,118 @@
 # print("max : ", max,"\n", "min : ", min)
 # print(list(val))
 
+# 1 2 3 dictionary 반복 
+
+# info = {
+#     "name" : "change",
+#     "location" : "seoul"
+# }
+
+# # Key 반복
+# for i in info:
+#     print(i)
+#     print(info[i])
+
+# for key in info.keys():
+#     print(key)
+
+# 3. value 반복
+# for value in info.values():
+#     print(value)
+
+# # 4. key, value 반복
+# for key, value in info.items():
+#     print(key,value)
+
+# print(info.keys())
+
+# blood_type = {
+#     "A" : 10,
+#     "B" : 8,
+#     "C" : 5,
+#     "AB" : 5
+# }
+
+# 혈액형 종류는 다음과 같습니다 ABOAB
+
+# 1,2
+# result = []
+# for key in blood_type:
+#     result.append(key)
+# result = ", ".join(result)
+# print(f"혈액형의 종류는 다음과 같습니다. {result} ")
+
+# # 3
+# result = 0
+# for value in blood_type.values():
+#     result = result + value
+#     print(f"학생수는 {result}명 입니다")
+
+# 4.
+# for  k, v in blood_type.item():
+#     print(f"{k}형은 {v}명입니다")
+
+# 1.2.4 break
+
+# for i in range(10):
+#     print(i)
+#     if i > 2:
+#         print("2초과입니다")
+#         break
+
+# 연습
+# 보리 =>, 쌀 = 잡았다 for 문 종료
+
+# bori = ["보리", "보리", "보리","쌀","보리","보리"]
+
+# for i in bori:
+#     if i == "쌀":
+#         print("잡았다")
+#         break
+#     print(i)
+
+# 1.2.5 comtinue
+
+# for i in range(5):
+#     if i % 2:
+#         continue
+#     print(f"{i}는 짝수입니다.")
+
+# 연습
+
+# age = [6, 10, 30, 20, 60, 4]
+
+# for i in age:
+#     if i < 20:
+#         print("미성년자입니다")
+#         continue
+#     print(f"{i}세, 성인입니다")
+
+# 1.2.6 else
+
+# for i in range(50):
+#     print(i)
+
+#     if i == 5:
+#         print(f"{i}번쨰에서 break")
+#         break
+# else:
+#     print("break를 만나지 않았습니다.")
+
+# 연습
+
+
+# numbers = []
+
+# for i in range(10):
+#     inp = input('숫자를 입력하세요')
+#     numbers.append(inp)
+#     if i == 5:
+#         print("true")
+#         break
+# else:
+#     print("false")
+
+# 1.2.7 match
+
 
