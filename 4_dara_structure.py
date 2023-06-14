@@ -1,7 +1,9 @@
+# print(dir('1'))
+
 # 1. 문자열 메소드
 
-# .capitalize() : 첫번째 글짜를 대문자로 바꿈 저장은 안함
-# greeting  = 'hello my name is seokjun'
+# .capitalize()
+greeting = 'hello my NAME is changhee'
 # print(greeting.capitalize())
 # print(greeting)
 
@@ -15,80 +17,88 @@
 # print(greeting.lower())
 
 # .join(interable)
-# a = ['hi','my','name']
-# print(''.join(a))
+a = ['hi', 'my', 'name']
+# print('!!'.join(a))
 
 # .replace(old, new[, count])
-print('wow'.replace('0','!',3))
+# print('woooooooow'.replace('o', '!', 3))
 
 # .strip([chars])
-str_1 = '        hello  \n'
-# str_r = 'hellohihihihhhihihi'
-# print(str_1.lstrip())
-# print(str_1.rstrip('hi')) # 오른쪽부터 'hi'를 다 지움
+str_l = '          hello \n'
+str_r = 'hellohihihihihihi'
+# print(str_l.strip())
+# print(str_l.lstrip())
+# print(str_r.rstrip('hi'))
 
-# .find(x) : 문자열 찾기 에러를 -1로 알려줌
-# a = 'apple'
+# .find(x)
+a = 'apple'
 # print(a.find('p'))
-# print(a.find('z')) #범위안에 없는 문자열이라 에러남
+# print(a.find('z'))
 
 # .index(x)
-# a = 'apple'
+a = 'apple'
 # print(a.index('a'))
 # print(a.index('z'))
 
-# .split()
-a = 'my name is seokjun'
-print(a.split(' '))
+# .split(x)
+a = 'my_name_is_changhee'
+# print(a.split('_'))
 
-# .isXXX => 확인, 참 거짓을 반환
+# .isXXX() => True, Fasle를 리턴한다.
+
+
 
 # 2. 리스트 메소드
-numbers = [5,5,5,1,2,3,4,5,5,5,5,5,5]
+
+numbers = [5, 5, 5, 1, 2, 3, 4, 5, 5, 5, 5]
+
 # .append(x)
 numbers.append(6)
 # print(numbers)
 
-
 # .extend(iterable)
-ex_nuber = [99,100]
-numbers.extend(ex_nuber)
-print(numbers)
+ex_numbers = [99, 100]
+numbers.extend(ex_numbers)
+# print(numbers)
 
 # .insert(i, x)
 numbers.insert(3, 3.5)
 # print(numbers)
 
+
 # .remove(x)
 numbers.remove(3.5)
 # print(numbers)
-# numbers.remove(3.5) # 없는데 삭제하려하면 오류남
 
-# .pop(i) : 인덱스 번호로 요소를 삭제함
+
+# .pop(i)
 numbers.pop(0)
 # print(numbers)
 
-# .index()
-# print(numbers.index(3))
+
+# .index(x)
 # print(numbers)
+# print(numbers.index(3))
 
-# .count(x) : x와 같은 요소 개수를 반환
-print(numbers.count(5))
+# .count(x)
+# print(numbers.count(5))
 
-# .sort() 오름차순으로 정렬
+# .sort()
 # numbers.sort()
 # print(numbers)
-# numbers.sort(reverse=True) # 내림차순으로 정렬
+# numbers.sort(reverse=True)
 # print(numbers)
 
-# .reverse() : 배열의 앞과 뒤를 바꿈
-# numbers.reverse()
+# .reverse()
+numbers.reverse()
 # print(numbers)
 
-# .copy : 같은 주소를 참조한다.
 
-# origin_list = [1,2,3]
-# copy_list = origin_list
+
+# copy 같은 주소를 참조한다.
+
+origin_list = [1, 2, 3]
+copy_list = origin_list
 
 # copy_list[0] = 100
 
@@ -97,195 +107,235 @@ print(numbers.count(5))
 # print(id(origin_list))
 # print(id(copy_list))
 
+
 # copy 복사 방법
-# a = [1,2,3]
+a = [1, 2, 3]
 # b = a[:]
-# b = list(a)
-# b[0] = 100
+b = list(a)
+
+b[0] = 100
 
 # print(a)
 # print(b)
 
-# copy 얕은 복사
-# a = [1,2,[3,4]]
-# b = a[:]
 
-# b[2][0]
-# print[a]
-# print[b]
+# copy 얕은복사
+a = [1, 2, [3, 4]]
+b = a[:]
+
+b[2][0] = 100
+
+# print(a)
+# print(b)
 
 
-# COPY 깊은 복사
-# import copy
-# a = [1,2,[3,4]]
-# b = copy.deepcopy(a)
+# copy 깊은복사
+import copy
+a = [1, 2, [3, 4]]
+b = copy.deepcopy(a)
 
-# b[2][0] = 100
+b[2][0] = 100
 
-# .clear() : 요소가 다 지워짐
-# a = [1,2,3,4,]
-# a.clear
+# print(a)
+# print(b)
+
+
+# .clear()
+a = [1, 2, 3, 4]
+a.clear()
 # print(a)
 
-# list comperration
 
-# numbers = list(range(1,11))
+# list comprehension
+
+numbers = list(range(1, 11))
+
 # 세제곱 만들기 for
-# result = []
-# for i in numbers:
-#     result.append(i**3)
-
+result = []
+for i in numbers:
+    result.append(i**3)
 # print(result)
 
-# result2 = [i**3 for i in numbers]
+# 세제곱 만들기 comp
+result2 = [i**3 for i in numbers]
 # print(result2)
 
+
 # 짝수만 고르기 for
-# even_list = []
-# for i in numbers:
-#     if i % 2 == 0:
-#         even_list.append(i)
+even_list = []
+for i in numbers:
+    if i % 2 == 0:
+        even_list.append(i)
 # print(even_list)
 
 # 짝수만 고르기 comp
-# even_list2 = [i for i in numbers if i%2 == 0]
+even_list2 = [i*2 for i in numbers if i % 2 == 0]
 # print(even_list2)
 
-# 연습
-# words = 'my name is park'
-# vowels = 'aeiou'
 
-# 모음 제거하기
-# for char in words:
-#     if char not in vowels:
-#         result.append(char)
-    
+# 연습
+words = 'my name is hong'
+vowels = 'aeiou'
+# => my n m   s  h ng
+
+# for
+result = []
+for char in words:
+    if char not in vowels:
+        result.append(char)
+
 # print(''.join(result))
 
+
 # comp
-# result2 = [char for char in words if char not in vowels]
-# print(result2)
+result2 = [char for char in words if char not in vowels]
+# print(''.join(result2))
 
-# 딕셔너리 메소드
 
-# info = {
-#     'name' : 'change',
-#     'locatoin' : 'location',
-#     'phone' : '123-123-123',
-# }
+
+# 3. 딕셔너리 메소드
+
+info = {
+    'name': 'change',
+    'location': 'seoul',
+    'phone': '123-123-123',
+}
 
 # .pop(key[, default])
-# info.pop('phon')
+info.pop('phone')
 # print(info)
-# print(info.pop('school', 'key가 없습니다'))
+# print(info.pop('school', 'key가 없습니다.'))
 # print(info)
 
-# .update()
-# info.update(name='seok')
-# # print(info)
+# .update(key=value)
+info.update(name='changhee')
+# print(info)
 
-# # .get(key[, default])
-# print(info["name"])
+# .get(key[, default])
+
+# print(info['name'])
 # print(info.get('name'))
+# # print(info['school'])
+# print(info.get('school'))
 
-#  #dictionary comperation
 
-# cube_dict = {}
-# for i in range(1,4):
-#     cube_dict[i] = i**3
+# dictionary comprehension
+# {1: 1, 2: 8, 3: 27}
+
+cube_dict = {}
+for i in range(1, 4):
+    cube_dict[i] = i**3
 # print(cube_dict)
 
-# cube_dict2 = {i: i**3 for i in range(1,4)}
+cube_dict2 = {i: i**3 for i in range(1, 4)}
+# print(cube_dict2)
+
 
 # 연습
 dust = {
-    '서울' : 100,
-    '대전' : 12,
-    '대구' : 70,
-    '부산' : 20,
-    '제주' : 0,
+    '서울': 100,
+    '대전': 12,
+    '대구': 70,
+    '부산': 20,
+    '제주': 0,
 }
 
-# 50 이상 지약만 뽑아서 새로운 dict 만들기
+# 50이상 지역만 뽑아서 새로운 dict만들기
 # for
-f_dict = {}
-for i, x in dust.items():
-    if x >= 50:
-        f_dict[i] = x
-print(f_dict)
+result = {}
+for k, v in dust.items():
+    if v >= 50:
+        result[k] = v
+# print(result)
 
-#comp
-result2 = {x : i for i,x in dust.items() if x >= 50}
-print(result2)
+# comp
+result2 = {k: v for k, v in dust.items() if v >= 50}
+# print(result2)
 
-result3 = {x: '나쁨' if x >= 50 else '좋음' for i,x in dust.items()}
-print(result3)
+result3 = {k: '나쁨' if v >= 50 else '좋음' for k, v in dust.items()}
+# print(result3)
 
 
-# 4. 세트 메소드 : {}이루어짐, 집합, 순서가 없음, 중복된 데이터가 없음
+# 4. 세트 메소드
 
-fruits = {'apple', 'banana','melon'}
+fruits = {'apple', 'banana', 'melon'}
 
-# .add()
+# .add(x)
 fruits.add('watermelon')
 fruits.add('watermelon')
 # print(fruits)
 
-# .update(*object)
+
+# .update(*objects)
 fruits.update('grape')
-fruits.update({'orange','pear'})
+fruits.update({'orange', 'pear'})
 # print(fruits)
 
-# .remove(x) : 없는데이터를 지울때 에러남
+
+# .remove(x)
 fruits.remove('banana')
 # print(fruits)
+# fruits.remove('dog')
 
-# .discard(x) : 없어도 에러안남
+
+# .discard(x)
 # print(fruits.discard('dog'))
+
+
+# .pop()
+fruits.pop()
+# print(fruits)
+
+
 
 # 5. map(), zip(), filter()
 
 # map(function, iterable)
-number = [1,2,3]
+number = [1, 2, 3]
 
 number_str = map(str, number)
 # print(number_str)
 # print(list(number_str))
 
+
 def cube(x):
     return x**3
-
-print(cube(3))
 
 cube_list = list(map(cube, number))
 # print(cube_list)
 
-s
-# 1 2 3 4 5 6 7 8 9 10
-#=> 1 8 27 ... 1000
 
-numbers = input().split()
+
+# 1 2 3 4 5 6 7 8 9 10 => [1, 2, 3, 4, 5...]
+# => 1 8 27 ... 1000
+
+# numbers = input().split()
 result = map(int, numbers)
-print(list(result))
+# print(list(result))
 
-result = list(map(int, numbers))
+# numbers = list(map(int, input().split()))
+# print(numbers)
 
-#zip 같은 인덱스의 자리를 튜플 형태로 합쳐줌
-a_number = [1,2,3]
-b_number = [100,200,300]
 
-print(list(zip(a_number, b_number)))
 
-# filter(func,iter)
+# zip
+a_number = [1, 2, 3]
+b_number = [100, 200, 300]
+
+# print(list(zip(a_number, b_number)))
+
+
+# filter(function, iterable)
+# function은 참/거짓이 반환되는 함수여야함
 
 def isodd(x):
     # if x % 2 == 1:
     #     return True
     # else:
     #     return False
-    
     return bool(x % 2)
 
-numbers = [1,2,3,4,5]
+
+numbers = [1, 2, 3, 4, 5]
 result = filter(isodd, numbers)
 print(list(result))
