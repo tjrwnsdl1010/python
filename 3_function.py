@@ -82,51 +82,51 @@ area = height*width
 #   return
 
 
-# def my_max(*numbers):
-#     result = 0
+def my_max(*numbers):
+    result = 0
     
 
-#     for idx, number in enumerate(numbers):
-#     #만약 for문에 첫번째 라면 제일 큰수로 설정
-#         if idx == 0:
-#             result = number
-#         else:
-#             if result < number:
-#                 result = number
-#     return result
+    for idx, number in enumerate(numbers):
+    #만약 for문에 첫번째 라면 제일 큰수로 설정
+        if idx == 0:
+            result = number
+        else:
+            if result < number:
+                result = number
+    return result
 
-#     return result
+    return result
         
     
-# result = my_max(1,2,3,4,5)
-# print(result)
+result = my_max(1,2,3,4,5)
+print(result)
 
-# result = my_max(-1,-2,-3,-4,-5)
-# print(result)
+result = my_max(-1,-2,-3,-4,-5)
+print(result)
 
 # 5.4 정의되지 않는 키워드 인자 처리
 
 # def func(**kwargs):
 #   code ...
 
-def fake_dict(**kwargs):
-    result = []
-    for k,v in kwargs.items():
-        result.append(f"{k}: {v}")
-    print(result)
-# fake_dict(name= "박석준", location= "인천")
+# def fake_dict(**kwargs):
+#     result = []
+#     for k,v in kwargs.items():
+#         result.append(f"{k}: {v}")
+#     print(result)
+# # fake_dict(name= "박석준", location= "인천")
 
-def user(username, password, password_confirm):
-    if password == password_confirm:
-        print(f"{username}님 회원가입이 완료되었습니다")
-    else :
-        print("비번틀림")
+# def user(username, password, password_confirm):
+#     if password == password_confirm:
+#         print(f"{username}님 회원가입이 완료되었습니다")
+#     else :
+#         print("비번틀림")
 
-user("홍길동", "1234", "12345")
+# user("홍길동", "1234", "12345")
 
-my_user = {
-    "username" : "이순신",
-    "password" : "1234",
-    "password_confirm" : "12345"
-}
-user(**my_user)
+# my_user = {
+#     "username" : "이순신",
+#     "password" : "1234",
+#     "password_confirm" : "12345"
+# }
+# user(**my_user)
