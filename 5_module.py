@@ -103,12 +103,14 @@ birth = datetime(2023, 1, 1, 13, 30)
 from datetime import timedelta
 
 future = timedelta(days=3)
-print(future)
+# print(future)
 
-print(birth+future)
+# print(birth+future)
 
-print(now + timedelta(days = 100))
+# print(now + timedelta(days = 100))
 
 christmas = datetime(2023, 12, 25)
 diff = christmas - now
-print(diff.total_seconds())
+# print(diff.total_seconds())
+
+
