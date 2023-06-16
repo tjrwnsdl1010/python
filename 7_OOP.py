@@ -271,7 +271,159 @@ class MyClass:
         return arg
 
 m1 = MyClass()
-print(m1.instance_method())
-print(m1.class_method())
-print(MyClass.class_method)
-print(m1.static_method('hello'))
+# print(m1.instance_method())
+# print(m1.class_method())
+# print(MyClass.class_method)
+# print(m1.static_method('hello'))
+
+
+# 연습 
+
+class Puppy:
+    num_of_dogs = 0
+
+    def __init__(self,name):
+        self.name = name
+        Puppy.num_of_dogs += 1
+    @classmethod
+    def get_status(cls):
+        return f"현재 강아지는 {cls.num_of_dogs}마리입니다"
+    @staticmethod
+    def bark(str='멍멍'):
+        return '멍멍'
+
+p1 = Puppy('인절미')
+p2 = Puppy('초코')
+# print(Puppy.get_status)
+# print(p1.bark())
+# print(p2.bark('그르릉'))
+
+class Person:
+    population = 0
+    def __init__(self,name):
+        self.name = name
+        Person.population += 1
+    def greeting(self):
+        print(f"안녕하세여{self.name}입니다")
+
+p1 = Person('홍길동')
+p1.greeting()
+
+class Student(Person):
+    def __init__(self,name,id):
+        self.name = name
+        self.id = id
+        Person.population += 1
+
+s1 = Student('이순신','12345')
+s1.greeting()
+
+
+class Soldier(Person):
+    # method overriding
+    def greeting(self):
+        print('충성!!')
+
+s2 = Soldier('국방이')
+s2.greeting()
+
+# super
+class Person():
+    def __init__(self,email,phone,location,name):
+        self.email = email
+        self.phone = phone
+        self.location = location
+        self.name = name
+
+class Student(Person):
+    def __init__(self,email,phone,location,name,id):
+        self.email = email
+        self.phone = phone
+        self.location = location
+        self.name = name
+        self.id = id
+
+class Soldier(Person):
+    def __init__(self,email,phone,location,name,id):
+        super().__init__(email,phone,location,name)
+        self.id = id
+
+
+# 다중상속  : 메소드 혹은 속성이 겹치면 첫번째 부모에게 상속받음
+
+class Person():
+    def __init__(self,name):
+        self.name = name
+    
+    def breath(self):
+        print('후하')
+
+class Mom(Person):
+    gene = 'XX'
+    def swim(self):
+        print('아푸아푸')
+class Dad(Person):
+    gene = "XY"
+    def run(self):
+        print('다다다')
+class FirstBaby(Mom,Dad):
+    pass
+class SecondBaby(Dad,Mom):
+    pass
+
+b1 = FirstBaby('첫째')
+b1.swim
+b1.run
+print(b1.gene)
+
+b2 = SecondBaby('둘째')
+b2.swim
+b2.run
+print(b2.gene)
+
+class Pokemon():
+    my_skill = []
+    w_skill_list = ["pump","wave"]
+    f_skill_list = ["fireball", "upperFire"]
+
+    def __init__(self,type_name):
+        self.level = 1
+        self.hp = self.level*100
+        self.exp = 0
+        self.type_name = type_name
+        if self.type_name == "불":
+            self.my_skill = self.f_skill_list
+        else :
+            self.my_skill = self.w_skill_list
+    
+    def attack(self,opponent,skill_name) :
+        print(f"{skill_name}을 사용했다!")
+        if skill_name == self.my_skill[0]:
+            damege = 10 
+        else :
+            damege = 20
+        opponent.hp -= damege
+        return opponent.hp
+    
+    def combat(self,opponent,skill_name="아무일도 일어나지 않았다"):
+        self.attack(opponent,skill_name)
+        if opponent.hp <= 0:
+            print("적이 쓰러졌다")
+        else:
+            print(f"{opponent.hp}남았다")
+
+
+    def check_hp(self):
+        return True if self.hp <= 0 else False
+
+    
+class WaterPokemon(Pokemon) : 
+    pass
+
+class FirePokemon(Pokemon):
+
+    pass
+kobugi = WaterPokemon("물")
+pairi = FirePokemon("불")
+
+kobugi.attack(pairi,"pump")
