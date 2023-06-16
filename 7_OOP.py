@@ -118,12 +118,160 @@ list_a.pop()
 print(list_a.data)
 
 # 정리 
-class Person:      # = 클래스 선언
-    name = 'hong'  # = 속성
+# class Person:      # = 클래스 선언
+#     name = 'hong'  # = 속성
 
-    def hello(self):  # => 메소드 : 함수/기능
-        return self.name
+#     def hello(self):  # => 메소드 : 함수/기능
+#         return self.name
 
-p = Person()  # 인스턴스화 / 객체 생성
-p.name # 속성 호출
-p.hello() # 메소드 호출
+# p = Person()  # 인스턴스화 / 객체 생성
+# p.name # 속성 호출
+# p.hello() # 메소드 호출
+
+# self : 인스턴스객체 자기자신
+#   - 특별한 상황을 제외하고는 무조건 메소드 첫번째 인자로 설정
+#   - 인스턴스 메소드를 실행할떄 자동으로 첫번째 인자에 인스턴스를 할당한다
+# p1 = Person()
+
+
+# p2 = Person()
+
+# print(p1.name)
+# p1.name = "Park"
+# print(p2.name)
+
+# 생성자, 소멸자
+# def __init__(self):
+#   print(생성될때 호출되는 메소드)
+
+# def __del__(self):
+#   print('소멸될떄 호출되는 메소드')
+
+
+# class Person():
+#     def __init__(self,name="이름없음"):
+#         self.name = name
+#         print('생성됨')
+
+# # class Person():
+# #     def __init__(self):
+# #         print('소멸됨')
+#     def set_location(self, location):
+#         self.location = location
+
+# p1 = Person('seokjun')    # Person.__init__(p1, 'seokjun') 이런식으로 작동
+
+# print(p1.name)
+
+# p2 = Person('Park')
+# print(p2.name)
+
+# p3 = Person()
+# print(p3.name)
+
+# 연습
+
+class Pikachu:
+    def __init__(self, name = "pikachu"):
+        self.name = name
+        self.level = 1
+        self.hp = self.level*100
+
+    def attack(self,opponent):
+        damege = self.level * 5
+        opponent.hp -= damege
+p1 = Pikachu()
+print(p1.level)
+
+p2 = Pikachu('chu')
+# print(p2.name)
+# print(p2.level)
+
+# p1.attack(p2)
+# print(p1.hp)
+
+# print(p2.hp)
+
+
+
+# 연습2
+# Circle 클래스
+
+# 속성
+# pi : 원주율 (3.14)
+
+# 인스턴스 속성
+# r = 반지름 (필수입력)
+# x : x좌표(defaulit = 0)
+# y : y좌표(default = 0)
+
+# class Circle:
+
+#     pi = 3.14
+#     def __init__(self,r,x=0,y=0):
+#         self.r = r
+#         self.x = x
+#         self.y = y
+    
+#     def center(self):
+#         return (self.x, self.y)
+    
+#     def area(self):
+#         result = self.r**2 * Circle.pi
+#         return result
+#     def move(self, x,y):
+#         self.x = x
+#         self.y = y
+#         print(f"원의 중심이({x},{y}로 이동했습니다)")
+    
+# c1 = Circle(2,1,2)
+# print(p1.area())
+# c1.move(100,100)
+
+
+# 클래스 변수 : 클래스 선언 블록 최상단 위치
+#   -ClassName.class_variable로 접근/할당
+# 인스턴스 변수 
+#   - self.instance_variable 로 접근/할당
+
+# class TestClass:
+#     class_variable = '클래스변수'
+
+#     def __init__(self,arg):
+#         self.instance_variable = arg
+
+# 인스턴스 메소드
+# class ClassName:
+#   def func():
+#    pass
+
+# 클래스 메소드
+# class ClassName:
+#   @classmethod:
+#       def func():
+#            pass
+ 
+# static method
+# class ClassName:
+#   @staticmethod:
+#       def func():
+#            pass
+ 
+
+class MyClass:
+    def instance_method(self):
+        return self
+    
+    @classmethod
+    def class_method(cls):
+        return cls
+    
+    @staticmethod
+    def static_method(arg):
+        return arg
+
+m1 = MyClass()
+print(m1.instance_method())
+print(m1.class_method())
+print(MyClass.class_method)
+print(m1.static_method('hello'))
